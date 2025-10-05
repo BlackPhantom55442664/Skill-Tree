@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Tree Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="designer-nav">
+            <div class="nav-left">
+                <div class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-11 -15 22 21">
+                        <path d="M 0 -15 L 8 0 L 0 0 L 1 -2 L 4 -2 L 0 -10 L -2 -6 L 0 -6 L -1 -4 L -6 -4 L 0 -15 M -7 -2 L -4 -2 L -7 4 L 7 4 L 6 2 L 9 2 L 11 6 L -11 6 L -7 -2" fill="#ffff"/>
+                    </svg>
+                    <span>Skill Tree Designer</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="nav-btn" onclick="saveTree()">Save</button>
+                <button class="nav-btn" onclick="loadTree()">Load</button>
+                <button class="nav-btn" onclick="exportTree()">Export</button>
+                <button class="nav-btn" onclick="clearCanvas()">Clear</button>
+                <a href="../Home page/index.html" class="nav-btn">Home</a>
+            </div>
+        </nav>
+
+        <!-- Main Canvas Area -->
+        <div class="canvas-container">
+            <div class="canvas" id="canvas">
+                <!-- SVG for connections -->
+                <svg id="connections-svg" class="connections-layer"></svg>
+                
+                <!-- Grid overlay -->
+                <div class="grid-overlay"></div>
+                
+                <!-- Nodes will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="toolbar-section">
+                <h3>Tools</h3>
+                <button class="tool-btn active" id="add-node-btn" onclick="setTool('addNode')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="16"/>
+                        <line x1="8" y1="12" x2="16" y2="12"/>
+                    </svg>
+                    Add Node
+                </button>
+                <button class="tool-btn" id="connect-btn" onclick="setTool('connect')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                    Connect
+                </button>
+                <button class="tool-btn" id="select-btn" onclick="setTool('select')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/>
+                    </svg>
+                    Select
+                </button>
+            </div>
+
+            <div class="toolbar-section">
+                <h3>Node Properties</h3>
+                <div class="property-group">
+                    <label>Name:</label>
+                    <input type="text" id="node-name" placeholder="Node name" onchange="updateSelectedNode()">
+                </div>
+                <div class="property-group">
+                    <label>Color:</label>
+                    <input type="color" id="node-color" value="#00ffff" onchange="updateSelectedNode()">
+                </div>
+                <div class="property-group">
+                    <label>Size:</label>
+                    <input type="range" id="node-size" min="60" max="150" value="100" onchange="updateSelectedNode()">
+                    <span id="size-value">100px</span>
+                </div>
+                <div class="property-group">
+                    <label>Description:</label>
+                    <textarea id="node-description" placeholder="Node description" onchange="updateSelectedNode()"></textarea>
+                </div>
+            </div>
+
+            <div class="toolbar-section">
+                <h3>Actions</h3>
+                <button class="action-btn" onclick="deleteSelectedNode()">Delete Node</button>
+                <button class="action-btn" onclick="duplicateNode()">Duplicate</button>
+                <button class="action-btn" onclick="centerCanvas()">Center Canvas</button>
+            </div>
+        </div>
+
+        <!-- Node Customization Panel -->
+        <div class="node-panel" id="node-panel">
+            <div class="panel-header">
+                <h3>Node Editor</h3>
+                <button class="close-btn" onclick="closeNodePanel()">×</button>
+            </div>
+            <div class="panel-content">
+                <div class="form-group">
+                    <label>Node Name:</label>
+                    <input type="text" id="panel-node-name" placeholder="Enter node name">
+                </div>
+                <div class="form-group">
+                    <label>Node Color:</label>
+                    <div class="color-picker">
+                        <input type="color" id="panel-node-color" value="#00ffff">
+                        <div class="color-presets">
+                            <div class="color-preset" style="background: #00ffff" onclick="setNodeColor('#00ffff')"></div>
+                            <div class="color-preset" style="background: #ff6b6b" onclick="setNodeColor('#ff6b6b')"></div>
+                            <div class="color-preset" style="background: #4ecdc4" onclick="setNodeColor('#4ecdc4')"></div>
+                            <div class="color-preset" style="background: #45b7d1" onclick="setNodeColor('#45b7d1')"></div>
+                            <div class="color-preset" style="background: #96ceb4" onclick="setNodeColor('#96ceb4')"></div>
+                            <div class="color-preset" style="background: #feca57" onclick="setNodeColor('#feca57')"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Node Size:</label>
+                    <input type="range" id="panel-node-size" min="60" max="150" value="100">
+                    <span id="panel-size-value">100px</span>
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <textarea id="panel-node-description" placeholder="Describe this skill or node..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Difficulty Level:</label>
+                    <select id="panel-node-difficulty">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                        <option value="expert">Expert</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Prerequisites:</label>
+                    <div id="prerequisites-list"></div>
+                    <button class="add-prereq-btn" onclick="addPrerequisite()">Add Prerequisite</button>
+                </div>
+                <div class="panel-actions">
+                    <button class="save-btn" onclick="saveNodeChanges()">Save Changes</button>
+                    <button class="cancel-btn" onclick="closeNodePanel()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Tree - Test Page</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #ecad29;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .test-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .test-card:hover {
+            border-color: #ecad29;
+            transform: translateY(-2px);
+        }
+        
+        .test-card h3 {
+            color: #00ffff;
+            margin-bottom: 15px;
+        }
+        
+        .test-card p {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .test-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ecad29;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .test-link:hover {
+            background: #f4c430;
+            transform: translateY(-1px);
+        }
+        
+        .features-list {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .features-list h2 {
+            color: #ecad29;
+            margin-bottom: 20px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid #00ffff;
+        }
+        
+        .feature-item .icon {
+            color: #00ffff;
+            font-size: 1.2rem;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-working {
+            background: #00ff88;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🌳 Skill Tree Project - Test Page</h1>
+        
+        <div class="test-grid">
+            <div class="test-card">
+                <h3><span class="status-indicator status-working"></span>Core Processor</h3>
+                <p>The central hub for managing skill trees with system status monitoring, project organization, and advanced features.</p>
+                <a href="Core/index.html" class="test-link">Open Core</a>
+            </div>
+            
+            <div class="test-card">
+                <h3><span class="status-indicator status-working"></span>Home Page</h3>
+                <p>Beautiful animated homepage with card-based navigation, showcasing different sections of the skill tree application.</p>
+                <a href="Home page/index.html" class="test-link">Open Home</a>
+            </div>
+            
+            <div class="test-card">
+                <h3><span class="status-indicator status-working"></span>Skill Tree Designer</h3>
+                <p>Advanced visual editor with drag-and-drop nodes, curved connections, and comprehensive node customization panel.</p>
+                <a href="Skill tree design/index.html" class="test-link">Open Designer</a>
+            </div>
+        </div>
+        
+        <div class="features-list">
+            <h2>✨ Implemented Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon">🎯</span>
+                    <span>Drag & Drop Nodes</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🔗</span>
+                    <span>Curved Connection Lines</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🎨</span>
+                    <span>Node Customization Panel</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">💫</span>
+                    <span>Floating Animation Effects</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🎨</span>
+                    <span>Color & Size Customization</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📝</span>
+                    <span>Node Description & Difficulty</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">💾</span>
+                    <span>Save & Load Trees</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📤</span>
+                    <span>Export as Image</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">⌨️</span>
+                    <span>Keyboard Shortcuts</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📱</span>
+                    <span>Responsive Design</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🎭</span>
+                    <span>Dark Theme UI</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🔧</span>
+                    <span>Multiple Connection Support</span>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(0, 255, 255, 0.1); border-radius: 12px;">
+            <h3 style="color: #00ffff; margin-bottom: 15px;">🚀 Ready to Use!</h3>
+            <p style="color: #cccccc; margin-bottom: 20px;">
+                All components are fully functional and ready for use. The skill tree designer includes all requested features:
+                drag-and-drop nodes with floating effects, curved connection lines, comprehensive node customization,
+                and a beautiful dark theme matching your original design.
+            </p>
+            <a href="Home page/index.html" class="test-link" style="font-size: 1.1rem; padding: 15px 30px;">
+                Start Using Skill Tree
+            </a>
+        </div>
+    </div>
+</body>
+</html>

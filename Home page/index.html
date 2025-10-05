@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Tree - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="indicator"></div>
+
+    <nav>
+        <div>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-11 -15 22 21">
+                    <path d="M 0 -15 L 8 0 L 0 0 L 1 -2 L 4 -2 L 0 -10 L -2 -6 L 0 -6 L -1 -4 L -6 -4 L 0 -15 M -7 -2 L -4 -2 L -7 4 L 7 4 L 6 2 L 9 2 L 11 6 L -11 6 L -7 -2" fill="#ffff"/>
+                </svg>
+            </div>
+            <div>Skill Tree</div>
+        </div>
+        <div>
+            <div class="active"><a class="editor" href="#">Home</a></div>
+            <div><a class="editor" href="../Skill tree design/index.html">Designer</a></div>
+            <div><a class="editor" href="../Core/index.html">Core</a></div>
+            <div><a class="editor" href="#" onclick="showTemplates()">Templates</a></div>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffff">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+                </svg>
+            </div>
+            <div class="svg-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd"/>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <div id="demo"></div>
+
+    <div class="details" id="details-even">
+        <div class="place-box">
+            <div class="text">Skill Tree Designer</div>
+        </div>
+        <div class="title-box-1"><div class="title-1">CREATE</div></div>
+        <div class="title-box-2"><div class="title-2">YOUR PATH</div></div>
+        <div class="desc">
+            Design custom skill trees with drag-and-drop nodes, curved connections, and personalized attributes. Build your learning journey with our intuitive visual editor.
+        </div>
+        <div class="cta">
+            <button class="bookmark" onclick="goToDesigner()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z" clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <button class="discover" onclick="goToDesigner()">Start Creating</button>
+        </div>
+    </div>
+
+    <div class="details" id="details-odd">
+        <div class="place-box">
+            <div class="text">Core Processor</div>
+        </div>
+        <div class="title-box-1"><div class="title-1">MANAGE</div></div>
+        <div class="title-box-2"><div class="title-2">YOUR TREES</div></div>
+        <div class="desc">
+            Access the central hub for managing all your skill trees. Monitor system status, organize projects, and access advanced features for power users.
+        </div>
+        <div class="cta">
+            <button class="bookmark" onclick="goToCore()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z" clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <button class="discover" onclick="goToCore()">Open Core</button>
+        </div>
+    </div>
+
+    <div class="pagination" id="pagination">
+        <div class="progress-sub-container">
+            <div class="progress-sub-background">
+                <div class="progress-sub-foreground"></div>
+            </div>
+        </div>
+        <div class="slide-numbers" id="slide-numbers"></div>
+    </div>
+
+    <div class="cover"></div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
